@@ -95,6 +95,7 @@ class RegistrationView: UIViewController, RegistrationViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        title = "Регистрация"
         view.addSubview(emailLabel)
         view.addSubview(emailTextField)
         view.addSubview(passwordLabel)
@@ -102,16 +103,8 @@ class RegistrationView: UIViewController, RegistrationViewProtocol {
         view.addSubview(repeatPasswordLabel)
         view.addSubview(repeatPasswordTextField)
         view.addSubview(registerButton)
-        setupNavBar()
-//        registerButtonView()
-        
     }
-    
-    private func setupNavBar() {
-        title = "Регистрация"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(hex: "7F6445") ?? UIColor.orange]
-    }
-    
+
     @objc private func registerButtonTapped() {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         presenter?.registerUser(email: email, password: password)
@@ -136,7 +129,4 @@ class RegistrationView: UIViewController, RegistrationViewProtocol {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
-}
-
-extension RegistrationView: UITextFieldDelegate {
 }

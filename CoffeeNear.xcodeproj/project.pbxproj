@@ -12,6 +12,8 @@
 		4470675427E204CC007D6F7A /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470675327E204CC007D6F7A /* LoginInteractor.swift */; };
 		4470675727E21A66007D6F7A /* CoffeeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470675627E21A66007D6F7A /* CoffeeListView.swift */; };
 		4470675927E21AB1007D6F7A /* CoffeeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470675827E21AB1007D6F7A /* CoffeeListPresenter.swift */; };
+		4470675C27E24D32007D6F7A /* CoffeeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470675B27E24D32007D6F7A /* CoffeeListInteractor.swift */; };
+		4470676127E250C6007D6F7A /* CoffeeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470676027E250C6007D6F7A /* CoffeeListCell.swift */; };
 		447ED4A827CFDDE20091EF05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED4A727CFDDE20091EF05 /* AppDelegate.swift */; };
 		447ED4AC27CFDDE20091EF05 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED4AB27CFDDE20091EF05 /* RegistrationView.swift */; };
 		447ED4B127CFDDEA0091EF05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447ED4B027CFDDEA0091EF05 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		4470675327E204CC007D6F7A /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		4470675627E21A66007D6F7A /* CoffeeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeListView.swift; sourceTree = "<group>"; };
 		4470675827E21AB1007D6F7A /* CoffeeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeListPresenter.swift; sourceTree = "<group>"; };
+		4470675B27E24D32007D6F7A /* CoffeeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeListInteractor.swift; sourceTree = "<group>"; };
+		4470676027E250C6007D6F7A /* CoffeeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeListCell.swift; sourceTree = "<group>"; };
 		447ED4A427CFDDE10091EF05 /* CoffeeNear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeNear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447ED4A727CFDDE20091EF05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447ED4AB27CFDDE20091EF05 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -86,10 +90,20 @@
 		4470675527E21A36007D6F7A /* CoffeeListScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4470675627E21A66007D6F7A /* CoffeeListView.swift */,
+				4470675D27E2509A007D6F7A /* View */,
 				4470675827E21AB1007D6F7A /* CoffeeListPresenter.swift */,
+				4470675B27E24D32007D6F7A /* CoffeeListInteractor.swift */,
 			);
 			path = CoffeeListScreen;
+			sourceTree = "<group>";
+		};
+		4470675D27E2509A007D6F7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4470675627E21A66007D6F7A /* CoffeeListView.swift */,
+				4470676027E250C6007D6F7A /* CoffeeListCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		447ED49B27CFDDE10091EF05 = {
@@ -295,8 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4470675C27E24D32007D6F7A /* CoffeeListInteractor.swift in Sources */,
 				447ED4EC27D2702F0091EF05 /* MainView.swift in Sources */,
 				447ED4AC27CFDDE20091EF05 /* RegistrationView.swift in Sources */,
+				4470676127E250C6007D6F7A /* CoffeeListCell.swift in Sources */,
 				447ED4BE27CFDEB80091EF05 /* RegistrationPresenter.swift in Sources */,
 				447ED4C827CFE2610091EF05 /* UIColorExtension.swift in Sources */,
 				4470675027E204AE007D6F7A /* LoginPresenter.swift in Sources */,

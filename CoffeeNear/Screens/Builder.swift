@@ -42,7 +42,8 @@ class Builder: BuilderProtocol {
     
     func createCoffeeListScreen(router: MainRouterProtocol) -> UIViewController? {
         let view = CoffeeListView()
-        let presenter = CoffeeListPresenter(view: view, router: router)
+        let interactor = CoffeeListInteractor()
+        let presenter = CoffeeListPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
         return view
     }

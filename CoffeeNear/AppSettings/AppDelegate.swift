@@ -12,8 +12,17 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let appereance = UINavigationBarAppearance()
+        appereance.titleTextAttributes = [NSAttributedString.Key
+                                            .font:  UIFont(name: "Avenir Next Demi Bold", size: 18) ?? UIFont(),
+                                          NSAttributedString.Key.foregroundColor: UIColor(hex: "7F6445") ?? UIColor.orange]
+        UINavigationBar.appearance().standardAppearance = appereance
+        UINavigationBar.appearance().compactAppearance = appereance
+        UINavigationBar.appearance().tintColor = UIColor(hex: "7F6445") ?? UIColor.orange
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         let mainScreenBuilder = Builder()
         let router = MainRouter(builder: mainScreenBuilder)
