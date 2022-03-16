@@ -21,7 +21,7 @@ class MainView: UIViewController, MainViewProtocol {
         button.setTitleColor(UIColor(hex: "F3E5D3"), for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
         button.isEnabled  = true
-        button.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
         return button
     } ()
     
@@ -31,6 +31,7 @@ class MainView: UIViewController, MainViewProtocol {
         button.backgroundColor = UIColor(hex: "332D1C") ?? .black
         button.setTitleColor(UIColor(hex: "F3E5D3"), for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
+        button.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
         return button
     } ()
     
@@ -43,14 +44,14 @@ class MainView: UIViewController, MainViewProtocol {
         
         view.addSubview(signUpButton)
         view.addSubview(loginButton)
-        
-        signUpButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+    
+    }
+    
+    @objc private func registerTapped() {
+        presenter?.goToRegister()
     }
     
     @objc private func loginTapped() {
-        guard let presenter = presenter else {
-            return
-        }
-        presenter.goToRegistrationScreen()
+        presenter?.goToLogin()
     }
 }

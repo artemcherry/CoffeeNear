@@ -9,8 +9,8 @@ import Foundation
 
 protocol MainPresenterProtocol: AnyObject {
     init(view: MainViewProtocol, router: MainRouterProtocol)
-    
-    func goToRegistrationScreen()
+    func goToRegister()
+    func goToLogin()
 }
 
 class MainPresenter: MainPresenterProtocol {
@@ -23,8 +23,12 @@ class MainPresenter: MainPresenterProtocol {
         self.router = router
     }
     
-    func goToRegistrationScreen() {
-        self.router?.goToRegisterScreen()
+    func goToRegister() {
+        router?.goToRegistrationScreen()
+    }
+    
+    func goToLogin() {
+        router?.goToLoginScreen()
     }
     
 }

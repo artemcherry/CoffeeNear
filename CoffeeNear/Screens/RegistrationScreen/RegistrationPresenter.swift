@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RegistrationPresnterProtocol: AnyObject {
-    
+    func registerUser(email: String, password: String)
 }
 
 class RegistrationPresenter: RegistrationPresnterProtocol {
@@ -21,5 +21,9 @@ class RegistrationPresenter: RegistrationPresnterProtocol {
         self.view = view
         self.router = router
         self.interactor = interactor
+    }
+    
+    func registerUser(email: String, password: String) {
+        interactor.registerUser(email: email, password: password)
     }
 }

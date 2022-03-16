@@ -6,23 +6,23 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    static var shared: AppDelegate {
-             return UIApplication.shared.delegate as! AppDelegate
-        }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let mainScreenBuilder = Builder()
         let router = MainRouter(builder: mainScreenBuilder)
-        window.rootViewController = mainScreenBuilder.createMainScreen(router: router)
+        let mainVC = UINavigationController(rootViewController: mainScreenBuilder.createMainScreen(router:router) ?? UIViewController())
+        window.rootViewController = mainVC
+        router.navigationController = mainVC
         window.makeKeyAndVisible()
         self.window = window
+        FirebaseApp.configure()
         return true
     }
 }

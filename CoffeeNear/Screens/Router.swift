@@ -11,7 +11,8 @@ import UIKit
 protocol MainRouterProtocol: AnyObject {
     var mainBuilder: BuilderProtocol? { get set }
     init(builder: BuilderProtocol)
-    func goToRegisterScreen()
+    func goToRegistrationScreen()
+    func goToLoginScreen()
 }
 
 class MainRouter: MainRouterProtocol {
@@ -23,9 +24,13 @@ class MainRouter: MainRouterProtocol {
         self.mainBuilder = builder
     }
     
-    func goToRegisterScreen() {
-        guard let registrationScreen = mainBuilder?.createRegistrationScreen(router: self) as? RegistrationView else { return }
-        navigationController?.viewControllers = [registrationScreen]
+    func goToRegistrationScreen() {
+        guard let registrationScreen = mainBuilder?.createRegistrationScreen(router: self) else { return }
         navigationController?.pushViewController(registrationScreen, animated: true)
+    }
+    
+    func goToLoginScreen() {
+        guard let loginScreen = mainBuilder?.createLoginScreen(router: self) else { return }
+        navigationController?.pushViewController(loginScreen, animated: true)
     }
 }
