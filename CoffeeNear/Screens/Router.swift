@@ -13,6 +13,7 @@ protocol MainRouterProtocol: AnyObject {
     init(builder: BuilderProtocol)
     func goToRegistrationScreen()
     func goToLoginScreen()
+    func goToCoffeeListScreen()
 }
 
 class MainRouter: MainRouterProtocol {
@@ -32,5 +33,10 @@ class MainRouter: MainRouterProtocol {
     func goToLoginScreen() {
         guard let loginScreen = mainBuilder?.createLoginScreen(router: self) else { return }
         navigationController?.pushViewController(loginScreen, animated: true)
+    }
+    
+    func goToCoffeeListScreen() {
+        guard let coffeeScreen = mainBuilder?.createCoffeeListScreen(router: self) else { return }
+        navigationController?.pushViewController(coffeeScreen, animated: true)
     }
 }

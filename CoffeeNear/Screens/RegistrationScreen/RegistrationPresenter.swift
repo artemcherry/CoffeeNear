@@ -24,6 +24,13 @@ class RegistrationPresenter: RegistrationPresnterProtocol {
     }
     
     func registerUser(email: String, password: String) {
-        interactor.registerUser(email: email, password: password)
+        interactor.registerUser(email: email, password: password) { [weak self] error in
+            guard let self = self else { return }
+            if error != nil {
+                self.view.showAlert()
+            } else {
+                self.router.goToCoffeeListScreen()
+            }
+        }
     }
 }

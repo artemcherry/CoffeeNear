@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RegistrationViewProtocol: AnyObject {
-    
+    func showAlert()
 }
 
 class RegistrationView: UIViewController, RegistrationViewProtocol {
@@ -129,4 +129,14 @@ class RegistrationView: UIViewController, RegistrationViewProtocol {
             registerButton.isEnabled = true
         }
     }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Ошибка", message: "Email или пароль неверен. Повторите попытку ", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension RegistrationView: UITextFieldDelegate {
 }

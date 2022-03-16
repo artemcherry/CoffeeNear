@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewProtocol: AnyObject {
-    
+    func showAlert()
 }
 
 class LoginView: UIViewController, LoginViewProtocol {
@@ -84,6 +84,13 @@ class LoginView: UIViewController, LoginViewProtocol {
     @objc private func loginButtonTapped() {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         presnter?.login(email: email, password: password)
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Ошибка", message: "Email или пароль неверен. Повторите попытку ", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
 

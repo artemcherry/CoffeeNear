@@ -25,6 +25,13 @@ class LoginPresenter: LoginPresenterProtocol {
     }
     
     func login(email: String, password: String) {
-        interactor?.login(email: email, password: password)
+        interactor?.login(email: email, password: password, competion: {[weak self] error in
+            guard let self = self else { return }
+            if error != nil {
+                self.view?.showAlert()
+            } else {
+                self.router?.goToCoffeeListScreen()
+            }
+        })
     }
 }
