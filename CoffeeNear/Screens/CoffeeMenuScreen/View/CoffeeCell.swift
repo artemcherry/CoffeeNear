@@ -9,7 +9,49 @@ import UIKit
 
 class CoffeeCell: UICollectionViewCell {
     
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
+    private let bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(hex: "7F6445")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let currencyLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(hex: "7F6445")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let numberLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(hex: "7F6445")
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let minusButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+    
+    private let addButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
     
     
     override init(frame: CGRect) {
@@ -21,7 +63,5 @@ class CoffeeCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
+
 }

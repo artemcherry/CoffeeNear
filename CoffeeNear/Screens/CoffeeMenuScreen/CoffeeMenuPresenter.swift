@@ -9,6 +9,7 @@ import Foundation
 
 protocol CoffeeMenuPresenterProtocol: AnyObject {
     init(view: CoffeeMenuViewProtocol, interactor: CoffeeMenuInteractorProtocol, router: MainRouterProtocol)
+    func getCoffeList() -> [CoffeeModel]?
 }
 
 class CoffeeMenuPresenter: CoffeeMenuPresenterProtocol {
@@ -21,5 +22,9 @@ class CoffeeMenuPresenter: CoffeeMenuPresenterProtocol {
         self.view = view
         self.router = router
         self.interactor = interactor
+    }
+    
+    func getCoffeList() -> [CoffeeModel]? {
+        return interactor?.getCoffeeMenuList()
     }
 }

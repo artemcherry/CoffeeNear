@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CoffeeModel {
+    let coffeeName: String?
+    let price: Int?
+    let image: String?
+}

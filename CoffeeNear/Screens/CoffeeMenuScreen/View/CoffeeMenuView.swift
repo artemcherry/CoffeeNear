@@ -13,8 +13,6 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: 175, height: 165)
-//        layout.estimatedItemSize  = CGSize(width: 175, height: 165)
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -23,6 +21,7 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
     }()
     
     var presenter: CoffeeMenuPresenterProtocol?
+    private var coffeeMenuList: [CoffeeModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +30,8 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        coffeeMenuList = presenter?.getCoffeList()
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,7 +43,7 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
 extension CoffeeMenuView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        coffeeMenuList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
