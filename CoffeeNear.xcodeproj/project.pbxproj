@@ -18,6 +18,7 @@
 		4470676627E32B80007D6F7A /* CoffeeMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470676527E32B80007D6F7A /* CoffeeMenuPresenter.swift */; };
 		4470676827E32B90007D6F7A /* CoffeeMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470676727E32B90007D6F7A /* CoffeeMenuInteractor.swift */; };
 		4470676A27E32B99007D6F7A /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470676927E32B99007D6F7A /* CoffeeModel.swift */; };
+		4470676F27E370E4007D6F7A /* CoffeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470676E27E370E4007D6F7A /* CoffeeCell.swift */; };
 		447ED4A827CFDDE20091EF05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED4A727CFDDE20091EF05 /* AppDelegate.swift */; };
 		447ED4AC27CFDDE20091EF05 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED4AB27CFDDE20091EF05 /* RegistrationView.swift */; };
 		447ED4B127CFDDEA0091EF05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447ED4B027CFDDEA0091EF05 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		4470676527E32B80007D6F7A /* CoffeeMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMenuPresenter.swift; sourceTree = "<group>"; };
 		4470676727E32B90007D6F7A /* CoffeeMenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMenuInteractor.swift; sourceTree = "<group>"; };
 		4470676927E32B99007D6F7A /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
+		4470676E27E370E4007D6F7A /* CoffeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCell.swift; sourceTree = "<group>"; };
 		447ED4A427CFDDE10091EF05 /* CoffeeNear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeNear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447ED4A727CFDDE20091EF05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447ED4AB27CFDDE20091EF05 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -117,12 +119,21 @@
 		4470676227E32AF8007D6F7A /* CoffeeMenuScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4470676327E32B5C007D6F7A /* CoffeeMenuView.swift */,
+				4470676B27E370AF007D6F7A /* View */,
 				4470676527E32B80007D6F7A /* CoffeeMenuPresenter.swift */,
 				4470676727E32B90007D6F7A /* CoffeeMenuInteractor.swift */,
 				4470676927E32B99007D6F7A /* CoffeeModel.swift */,
 			);
 			path = CoffeeMenuScreen;
+			sourceTree = "<group>";
+		};
+		4470676B27E370AF007D6F7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4470676327E32B5C007D6F7A /* CoffeeMenuView.swift */,
+				4470676E27E370E4007D6F7A /* CoffeeCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		447ED49B27CFDDE10091EF05 = {
@@ -337,6 +348,7 @@
 				447ED4BE27CFDEB80091EF05 /* RegistrationPresenter.swift in Sources */,
 				447ED4C827CFE2610091EF05 /* UIColorExtension.swift in Sources */,
 				4470675027E204AE007D6F7A /* LoginPresenter.swift in Sources */,
+				4470676F27E370E4007D6F7A /* CoffeeCell.swift in Sources */,
 				447ED4F427D27FDE0091EF05 /* Builder.swift in Sources */,
 				4470676827E32B90007D6F7A /* CoffeeMenuInteractor.swift in Sources */,
 				4470675727E21A66007D6F7A /* CoffeeListView.swift in Sources */,
