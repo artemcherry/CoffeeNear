@@ -10,6 +10,7 @@ import Foundation
 protocol CoffeeListPresenterProtocol: AnyObject {
     init(view: CoffeeListViewProtocol, router: MainRouterProtocol, interactor: CoffeeListInteractorProtocol)
     func getCoffeeList() -> [String]?
+    func goToCoffeMenu()
 }
 
 class CoffeeListPresenter: CoffeeListPresenterProtocol {
@@ -17,7 +18,6 @@ class CoffeeListPresenter: CoffeeListPresenterProtocol {
     private let view: CoffeeListViewProtocol?
     private let router: MainRouterProtocol?
     private let interactor: CoffeeListInteractorProtocol?
-//    var coffeeList: [String]
     
     required init(view: CoffeeListViewProtocol, router: MainRouterProtocol, interactor: CoffeeListInteractorProtocol) {
         self.view = view
@@ -27,5 +27,9 @@ class CoffeeListPresenter: CoffeeListPresenterProtocol {
     
     func getCoffeeList() -> [String]? {
         return interactor?.getCoffeeList()
+    }
+    
+    func goToCoffeMenu() {
+        router?.goToCoffeeMenuScreen()
     }
 }

@@ -66,7 +66,7 @@ class LoginView: UIViewController, LoginViewProtocol {
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         return button
     }()
-
+    
     var presnter: LoginPresenterProtocol?
     
     override func viewDidLoad() {
