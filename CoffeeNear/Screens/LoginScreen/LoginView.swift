@@ -58,7 +58,7 @@ class LoginView: UIViewController, LoginViewProtocol {
         let padding = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
         textField.leftView = padding
         textField.leftViewMode = .always
-        textField.text = ""
+        textField.text = "Aartem553"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

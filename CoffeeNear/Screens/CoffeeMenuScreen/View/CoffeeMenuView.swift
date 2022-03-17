@@ -15,8 +15,8 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.backgroundColor = .systemPink
+        collectionView.register(CoffeeCell.self, forCellWithReuseIdentifier: CoffeeCell.identifier)
+        collectionView.backgroundColor = .systemBackground
         return collectionView
     }()
     
@@ -25,7 +25,7 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         
         collectionView.delegate = self
@@ -47,8 +47,12 @@ extension CoffeeMenuView: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .cyan
+       guard  let cell = collectionView
+                .dequeueReusableCell(withReuseIdentifier: CoffeeCell.identifier, for: indexPath) as? CoffeeCell,
+        let coffeeMenu = coffeeMenuList
+        else { return UICollectionViewCell() }
+        cell.setupCell(model: coffeeMenu[indexPath.row])
+        cell.layer.cornerRadius = 5
         return cell
     }
      
