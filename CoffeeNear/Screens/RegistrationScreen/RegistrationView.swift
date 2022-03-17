@@ -81,21 +81,21 @@ class RegistrationView: UIViewController, RegistrationViewProtocol {
     
     private let registerButton : UIButton = {
         let button = UIButton(frame: CGRect(x: 30, y: 620, width: 330, height: 50))
-        button.backgroundColor = UIColor(hex: "332D1C")
+        button.backgroundColor = .systemGray
         button.setTitle("Регистрация", for: .normal)
         button.setTitleColor(UIColor(hex: "F3E5D3"), for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
         button.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         return button
     }()
-    
-    
+        
     var presenter: RegistrationPresnterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Регистрация"
+        
         view.addSubview(emailLabel)
         view.addSubview(emailTextField)
         view.addSubview(passwordLabel)
@@ -103,6 +103,10 @@ class RegistrationView: UIViewController, RegistrationViewProtocol {
         view.addSubview(repeatPasswordLabel)
         view.addSubview(repeatPasswordTextField)
         view.addSubview(registerButton)
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        repeatPasswordTextField.delegate = self
     }
 
     @objc private func registerButtonTapped() {
@@ -110,23 +114,22 @@ class RegistrationView: UIViewController, RegistrationViewProtocol {
         presenter?.registerUser(email: email, password: password)
     }
     
-    private func registerButtonView() {
-        
-        if passwordTextField.text == "",
-           emailTextField.text == "",
-           repeatPasswordTextField.text == "" {
-            registerButton.backgroundColor = .systemGray
-            registerButton.isEnabled = false
-        } else {
-            registerButton.backgroundColor =  UIColor(hex: "332D1C")
-            registerButton.isEnabled = true
-        }
-    }
-    
     func showAlert() {
         let alert = UIAlertController(title: "Ошибка", message: "Email или пароль неверен. Повторите попытку ", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension RegistrationView: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty ||  repeatPasswordTextField.text!.isEmpty {
+            registerButton.isEnabled = false
+        } else {
+            registerButton.isEnabled = true
+            registerButton.backgroundColor = UIColor(hex: "332D1C")
+        }
     }
 }

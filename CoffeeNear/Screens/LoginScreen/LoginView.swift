@@ -57,9 +57,9 @@ class LoginView: UIViewController, LoginViewProtocol {
         return textField
     }()
     
-    private let registerButton : UIButton = {
+    private let loginButton : UIButton = {
         let button = UIButton(frame: CGRect(x: 30, y: 520, width: 330, height: 50))
-        button.backgroundColor = UIColor(hex: "332D1C")
+        button.backgroundColor = .systemGray
         button.setTitle("Войти", for: .normal)
         button.setTitleColor(UIColor(hex: "F3E5D3"), for: .normal)
         button.layer.cornerRadius = button.frame.height / 2
@@ -72,11 +72,15 @@ class LoginView: UIViewController, LoginViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Войти"
+        
         view.addSubview(emailLabel)
         view.addSubview(emailTextField)
         view.addSubview(passwordLabel)
         view.addSubview(passwordTextField)
-        view.addSubview(registerButton)
+        view.addSubview(loginButton)
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
 
         view.backgroundColor = .systemBackground
     }
@@ -92,6 +96,16 @@ class LoginView: UIViewController, LoginViewProtocol {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
-    
+}
 
+extension LoginView: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
+            loginButton.isEnabled = false
+        } else {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = UIColor(hex: "332D1C")            
+        }
+    }
 }

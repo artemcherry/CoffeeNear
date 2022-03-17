@@ -14,7 +14,7 @@ class CoffeeListView: UIViewController, CoffeeListViewProtocol {
     private let tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = .white
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(CoffeeListCell.self, forCellReuseIdentifier: CoffeeListCell.identifier)
         return table
     }()
     
@@ -42,16 +42,25 @@ class CoffeeListView: UIViewController, CoffeeListViewProtocol {
 
 extension CoffeeListView: UITableViewDelegate, UITableViewDataSource  {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        3
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        coffeeList?.count ?? 0
+       1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = coffeeList?[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CoffeeListCell.identifier, for: indexPath) as? CoffeeListCell else { return UITableViewCell() }
+      
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
     
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        100
+    }
 }
