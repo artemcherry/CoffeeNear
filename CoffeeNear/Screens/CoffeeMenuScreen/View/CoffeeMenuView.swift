@@ -28,6 +28,8 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         
+        title = "Ближайшие кофейни"
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -51,8 +53,16 @@ extension CoffeeMenuView: UICollectionViewDelegate, UICollectionViewDataSource, 
                 .dequeueReusableCell(withReuseIdentifier: CoffeeCell.identifier, for: indexPath) as? CoffeeCell,
         let coffeeMenu = coffeeMenuList
         else { return UICollectionViewCell() }
+        
         cell.setupCell(model: coffeeMenu[indexPath.row])
-        cell.layer.cornerRadius = 5
+        
+        cell.layer.borderWidth = 0.0
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOpacity = 1
+        cell.layer.masksToBounds = false
+
         return cell
     }
      
