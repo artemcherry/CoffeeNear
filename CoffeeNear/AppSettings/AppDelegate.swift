@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let mainScreenBuilder = Builder()
         let router = MainRouter(builder: mainScreenBuilder)
-//        let mainVC = mainScreenBuilder.createCoffeeListScreen(router: router)
         let mainVC = UINavigationController(rootViewController: mainScreenBuilder.createMainScreen(router:router) ?? UIViewController())
         window.rootViewController = mainVC
         router.navigationController = mainVC

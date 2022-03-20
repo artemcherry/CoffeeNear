@@ -15,6 +15,7 @@ protocol MainRouterProtocol: AnyObject {
     func goToLoginScreen()
     func goToCoffeeListScreen()
     func goToCoffeeMenuScreen()
+    func goToChartScreen(coffeeList: [CoffeeModel])
 }
 
 class MainRouter: MainRouterProtocol {
@@ -44,5 +45,10 @@ class MainRouter: MainRouterProtocol {
     func goToCoffeeMenuScreen() {
         guard let coffeeMenuScreen = mainBuilder?.createCoffeeMenuScreen(router: self) else { return }
         navigationController?.pushViewController(coffeeMenuScreen, animated: true)
+    }
+    
+    func goToChartScreen(coffeeList: [CoffeeModel]) {
+        guard let chartScreen = mainBuilder?.createChartScreen(router: self, coffeeList: coffeeList) else { return }
+        navigationController?.pushViewController(chartScreen, animated: true)
     }
 }

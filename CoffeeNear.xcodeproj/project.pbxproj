@@ -31,6 +31,10 @@
 		447ED4F427D27FDE0091EF05 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED4F327D27FDE0091EF05 /* Builder.swift */; };
 		447ED4F627D27FE90091EF05 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED4F527D27FE90091EF05 /* Router.swift */; };
 		447ED57627DCD5CE0091EF05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 447ED57527DCD5CE0091EF05 /* GoogleService-Info.plist */; };
+		44AD164F27E7131E009CA63A /* CustomFooterWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD164E27E7131E009CA63A /* CustomFooterWithButton.swift */; };
+		44AD165227E7188B009CA63A /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD165127E7188B009CA63A /* ChartView.swift */; };
+		44AD165427E718BD009CA63A /* ChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD165327E718BD009CA63A /* ChartPresenter.swift */; };
+		44AD165627E718C8009CA63A /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AD165527E718C8009CA63A /* ChartInteractor.swift */; };
 		F92B98F51F5CE8B378A80E34 /* Pods_CoffeeNear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938C5970550C08E5A8D38EA4 /* Pods_CoffeeNear.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +65,10 @@
 		447ED4F327D27FDE0091EF05 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		447ED4F527D27FE90091EF05 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		447ED57527DCD5CE0091EF05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		44AD164E27E7131E009CA63A /* CustomFooterWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterWithButton.swift; sourceTree = "<group>"; };
+		44AD165127E7188B009CA63A /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		44AD165327E718BD009CA63A /* ChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPresenter.swift; sourceTree = "<group>"; };
+		44AD165527E718C8009CA63A /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		6DD2D5E6C4DC454D62C85846 /* Pods-CoffeeNear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeNear.release.xcconfig"; path = "Target Support Files/Pods-CoffeeNear/Pods-CoffeeNear.release.xcconfig"; sourceTree = "<group>"; };
 		938C5970550C08E5A8D38EA4 /* Pods_CoffeeNear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeNear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F141384C497FD65E8722A8E /* Pods-CoffeeNear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeNear.debug.xcconfig"; path = "Target Support Files/Pods-CoffeeNear/Pods-CoffeeNear.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 			children = (
 				4470676327E32B5C007D6F7A /* CoffeeMenuView.swift */,
 				4470676E27E370E4007D6F7A /* CoffeeCell.swift */,
+				44AD164E27E7131E009CA63A /* CustomFooterWithButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +213,7 @@
 				4470674E27E2048F007D6F7A /* LoginScreen */,
 				4470675527E21A36007D6F7A /* CoffeeListScreen */,
 				4470676227E32AF8007D6F7A /* CoffeeMenuScreen */,
+				44AD165027E71840009CA63A /* ChartScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -215,6 +225,16 @@
 				447ED4ED27D2703B0091EF05 /* MainPresenter.swift */,
 			);
 			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		44AD165027E71840009CA63A /* ChartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				44AD165127E7188B009CA63A /* ChartView.swift */,
+				44AD165327E718BD009CA63A /* ChartPresenter.swift */,
+				44AD165527E718C8009CA63A /* ChartInteractor.swift */,
+			);
+			path = ChartScreen;
 			sourceTree = "<group>";
 		};
 		460498EA487CF122FA4A7B4C /* Frameworks */ = {
@@ -341,17 +361,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4470675C27E24D32007D6F7A /* CoffeeListInteractor.swift in Sources */,
+				44AD165427E718BD009CA63A /* ChartPresenter.swift in Sources */,
 				4470676A27E32B99007D6F7A /* CoffeeModel.swift in Sources */,
 				447ED4EC27D2702F0091EF05 /* MainView.swift in Sources */,
 				447ED4AC27CFDDE20091EF05 /* RegistrationView.swift in Sources */,
 				4470676127E250C6007D6F7A /* CoffeeListCell.swift in Sources */,
 				447ED4BE27CFDEB80091EF05 /* RegistrationPresenter.swift in Sources */,
+				44AD165227E7188B009CA63A /* ChartView.swift in Sources */,
 				447ED4C827CFE2610091EF05 /* UIColorExtension.swift in Sources */,
 				4470675027E204AE007D6F7A /* LoginPresenter.swift in Sources */,
 				4470676F27E370E4007D6F7A /* CoffeeCell.swift in Sources */,
 				447ED4F427D27FDE0091EF05 /* Builder.swift in Sources */,
 				4470676827E32B90007D6F7A /* CoffeeMenuInteractor.swift in Sources */,
 				4470675727E21A66007D6F7A /* CoffeeListView.swift in Sources */,
+				44AD165627E718C8009CA63A /* ChartInteractor.swift in Sources */,
 				4470676427E32B5D007D6F7A /* CoffeeMenuView.swift in Sources */,
 				447ED4EE27D2703B0091EF05 /* MainPresenter.swift in Sources */,
 				447ED4A827CFDDE20091EF05 /* AppDelegate.swift in Sources */,
@@ -361,6 +384,7 @@
 				4470675927E21AB1007D6F7A /* CoffeeListPresenter.swift in Sources */,
 				447ED4C327CFDFE20091EF05 /* RegistrationInteractor.swift in Sources */,
 				4470676627E32B80007D6F7A /* CoffeeMenuPresenter.swift in Sources */,
+				44AD164F27E7131E009CA63A /* CustomFooterWithButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

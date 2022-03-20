@@ -14,6 +14,8 @@ protocol BuilderProtocol: AnyObject {
     func createLoginScreen(router: MainRouterProtocol) -> UIViewController?
     func createCoffeeListScreen(router: MainRouterProtocol) -> UIViewController?
     func createCoffeeMenuScreen(router: MainRouterProtocol) -> UIViewController?
+    func createChartScreen(router: MainRouterProtocol, coffeeList: [CoffeeModel]) -> UIViewController?
+
 }
 
 class Builder: BuilderProtocol {
@@ -53,6 +55,14 @@ class Builder: BuilderProtocol {
         let view = CoffeeMenuView()
         let interactor = CoffeeMenuInteractor()
         let presenter = CoffeeMenuPresenter(view: view, interactor: interactor, router: router)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createChartScreen(router: MainRouterProtocol, coffeeList: [CoffeeModel]) -> UIViewController? {
+        let view = ChartView()
+        let interactor = ChartInteractor()
+        let presenter = ChartPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
         return view
     }

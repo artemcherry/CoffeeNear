@@ -16,6 +16,9 @@ class CoffeeMenuView: UIViewController, CoffeeMenuViewProtocol {
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CoffeeCell.self, forCellWithReuseIdentifier: CoffeeCell.identifier)
+        collectionView.register(CustomFooterWithButton.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: CustomFooterWithButton.identifier)
         collectionView.backgroundColor = .systemBackground
         return collectionView
     }()
@@ -65,6 +68,13 @@ extension CoffeeMenuView: UICollectionViewDelegate, UICollectionViewDataSource, 
 
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: CustomFooterWithButton.identifier, for: indexPath) as? CustomFooterWithButton else { return UICollectionReusableView() }
+        footer.configure()
+        footer.chartButton.addTarget(self, action: #selector(goToChartTapped), for: .touchUpInside)
+        return footer
+    }
      
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
@@ -74,5 +84,13 @@ extension CoffeeMenuView: UICollectionViewDelegate, UICollectionViewDataSource, 
         let itemsPerRow: CGFloat = 2
         let width: CGFloat = UIScreen.main.bounds.width / itemsPerRow - 25
         return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: 150)
+    }
+    
+    @objc private func goToChartTapped() {
+        presenter?.goToChartScreen(coffeeList: coffeeMenuList!)
     }
 }
