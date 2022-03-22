@@ -42,7 +42,7 @@ class CoffeeCell: UICollectionViewCell {
     private let numberLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(hex: "7F6445")
-        label.text = "0"
+        label.adjustsFontSizeToFitWidth = true
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -125,7 +125,7 @@ class CoffeeCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             priceLabel.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 5),
-            priceLabel.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -100),
+            priceLabel.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -80),
             priceLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
         
@@ -159,10 +159,13 @@ class CoffeeCell: UICollectionViewCell {
     }
     
     func setupCell(model: CoffeeModel) {
-        guard let price = model.price else { return }
+        guard let price = model.price,
+              let numberOfCups = model.numberOfCups 
+        else { return }
         imageView.image = UIImage(named: model.image ?? "")
         nameLabel.text = model.coffeeName
         priceLabel.text = "\(price) руб"
+        numberLabel.text = "\(numberOfCups)"
     }
 
     @objc private func addButtonTapped() {
